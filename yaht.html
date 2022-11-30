@@ -96,22 +96,21 @@ function rollDie() {
         }
         score6 = no6*6;
 
-
-
-        document.getElementById("v").innerHTML = score1;
-        document.getElementById("w").innerHTML = score2;
-        document.getElementById("x").innerHTML = score3;
-        document.getElementById("y").innerHTML = score4;
-        document.getElementById("z").innerHTML = score5;
-        document.getElementById("z2").innerHTML = score6;
-        document.getElementById("y2").innerHTML = yahtzee;
-        document.getElementById("y3").innerHTML = ThrOfkind;
-        document.getElementById("y4").innerHTML = FrOfkind;
-
-
-        var scoretotal = score1+score2+score3+score4+score5;
-        maintotal += scoretotal;
     }
+    document.getElementById("v").innerHTML = score1;
+    document.getElementById("w").innerHTML = score2;
+    document.getElementById("x").innerHTML = score3;
+    document.getElementById("y").innerHTML = score4;
+    document.getElementById("z").innerHTML = score5;
+    document.getElementById("z2").innerHTML = score6;
+    document.getElementById("y2").innerHTML = yahtzee;
+    document.getElementById("y3").innerHTML = ThrOfkind;
+    document.getElementById("y4").innerHTML = FrOfkind;
+
+
+     var scoretotal = score1+score2+score3+score4+score5;
+     maintotal += scoretotal;
+    
 document.getElementById("tt").innerHTML = maintotal;
 if (Math.min(numlist) == Math.max(numlist) ) {
     yahtzee += 1;
