@@ -1,0 +1,168 @@
+<!--	Name: Isabelle Hommel	
+Course:	235.02
+HomeWork:	#2
+Git-Hub:	https://github.com/yourName/yourHomeWork
+-->	
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Yahtzee</title>
+<style type="text/css">
+
+h1 {text-align: center;}
+div.a {text-align: center;margin-bottom:4em}
+table.a {margin-left: auto;margin-right: auto;}
+td.a {text-align:right;
+    font-family: Helvetica;
+    font-weight: bold;
+}
+
+td.b {background-color:#AEAFFF;
+    width: 2em;
+    height: 150%;
+    border: 3px groove #AEAFB4;
+    font-family: Helvetica;
+    font-weight: bold;
+
+
+} 
+
+td.c {width: 10em;}
+button.a {background-color: #6000c9;
+    font-family: "Times New Roman";
+    font-size: 18pt;
+    font-weight: bold;
+    color: white;
+}
+
+
+</style>
+</head>
+
+<body>
+<h1>Yahtzee</h1>
+<script language="JavaScript">
+
+
+maintotal = 0;
+yahtzee = 0;
+ThrOfkind = 0;
+FrOfkind = 0;
+
+function rollDie() {
+    no1 = 0
+    no2 = 0
+    no3 = 0
+    no4 = 0
+    no5 = 0
+    no6 = 0
+    const numlist = [];
+    for (var i=0; i<5;i++) {
+        var die = document.getElementById("dice"+i);
+        var num = Math.floor(6*Math.random())+1;
+        die.src = "pix/dice" + num[i] + ".gif";
+        numlist.push(num);
+
+        if (num==1) {
+            no1+=1;
+        }
+        score1 = no1*1;
+    
+        if (num==2) {
+            no2+=1;
+        }
+        score2 = no2*2;
+
+        if (num==3) {
+            no3+=1;
+        }
+        score3=no3*3;
+
+        if (num==4) {
+            no4+=1;
+        }
+        score4=no4*4;
+
+        if (num==5) {
+            no5+=1;
+        }
+        score5=no5*5;
+
+        if (num==6) {
+            no6+=1;
+        }
+        score6 = no6*6;
+
+
+
+        document.getElementById("v").innerHTML = score1;
+        document.getElementById("w").innerHTML = score2;
+        document.getElementById("x").innerHTML = score3;
+        document.getElementById("y").innerHTML = score4;
+        document.getElementById("z").innerHTML = score5;
+        document.getElementById("z2").innerHTML = score6;
+        document.getElementById("y2").innerHTML = yahtzee;
+        document.getElementById("y3").innerHTML = ThrOfkind;
+        document.getElementById("y4").innerHTML = FrOfkind;
+
+
+        var scoretotal = score1+score2+score3+score4+score5;
+        maintotal += scoretotal;
+    }
+document.getElementById("tt").innerHTML = maintotal;
+if (Math.min(numlist) == Math.max(numlist) ) {
+    yahtzee += 1;
+}
+
+const unique = new Set(numlist).size;
+if (unique < 3) {
+    ThrOfkind += 1;
+}
+if (unique < 2) {
+    FrOfkind += 1;
+}
+
+}  
+
+
+</script>
+
+<div class="a">
+    <img id="dice0" src="pix/dice0.gif">
+    <img id="dice1" src="pix/dice0.gif">
+    <img id="dice2" src="pix/dice0.gif">
+    <img id="dice3" src="pix/dice0.gif">
+    <img id="dice4" src="pix/dice0.gif">
+</div>
+
+<table class="a">
+
+<td class="c" rowspan="10">
+<button class="a" onclick="rollDie()">Roll</button> </td> </tr>
+<button class="a" onclick="window.location.reload();">New Game</button>
+
+<tr> <td class="a">1's</td><td id = "v" class="b"></td> </tr>
+<tr> <td class="a">2's</td><td id = "w" class="b"></td> </tr>
+<tr> <td class="a">3's</td><td id = "x" class="b"> </td> </tr>
+<tr> <td class="a">4's</td><td id = "y" class="b"></td> </tr>
+<tr> <td class="a">5's</td><td id = "z" class="b"> </td> </tr>
+<tr> <td class="a">6's</td><td id = "z2" class="b"> </td> </tr>
+<tr> <td class="a">Yahtzee</td><td id = "y2" class="b"> </td> </tr>
+<tr> <td class="a">3 of a kind</td><td id = "y3" class="b"> </td> </tr>
+<tr> <td class="a">4 of a kind</td><td id = "y4" class="b"> </td> </tr>
+
+
+
+
+</table>
+
+<p style="text-align: center ;">Total:</p>
+<p id="tt" style="text-align: center;"></p> 
+<p id="yy" style="text-align: center;"></p> 
+
+</body>
+</html>
+
